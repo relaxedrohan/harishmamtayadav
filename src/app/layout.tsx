@@ -25,8 +25,14 @@ export const metadata: Metadata = {
     "Harish Yadav, Mamta Yadav, Ward Councillor, Khanpur, New Delhi, MCD, BJP, Nigam Parshad, Ward 167",
   openGraph: {
     title: "Harish Yadav & Mamta Yadav | Ward Councillors",
-    description: "Serving Khanpur Village, Ward 167, South Delhi",
+    description: "Serving Khanpur Village, Ward 167, South Delhi with dedication. निगम पार्षद · खानपुर गाँव · दक्षिण दिल्ली",
     type: "website",
+    siteName: "Harish & Mamta Yadav",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Harish Yadav & Mamta Yadav | Ward Councillors",
+    description: "Serving Khanpur Village, Ward 167, South Delhi",
   },
 };
 
