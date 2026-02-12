@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
 function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
@@ -64,14 +64,24 @@ function ProfilePhoto({ src, fallbackGradient, initials }: { src: string; fallba
 export default function About() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const scrollRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: scrollRef,
+    offset: ["start end", "end start"],
+  });
+  const decorY1 = useTransform(scrollYProgress, [0, 1], [-80, 80]);
+  const decorY2 = useTransform(scrollYProgress, [0, 1], [60, -60]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [40, -40]);
+  const sectionOpacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0.6, 1, 1, 0.6]);
 
   return (
-    <section id="about" className="relative py-24 md:py-32 overflow-hidden" ref={ref}>
+    <section id="about" className="relative py-24 md:py-32 overflow-hidden" ref={scrollRef}>
+      <div ref={ref} />
       {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-saffron/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+      <motion.div style={{ y: decorY1 }} className="absolute top-0 left-0 w-[500px] h-[500px] bg-saffron/10 rounded-full blur-3xl -translate-x-1/3 -translate-y-1/3" />
+      <motion.div style={{ y: decorY2 }} className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gold/10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <motion.div style={{ opacity: sectionOpacity, y: contentY }} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -192,7 +202,7 @@ export default function About() {
             </div>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

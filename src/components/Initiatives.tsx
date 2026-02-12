@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 
 const initiatives = [
   {
@@ -51,9 +51,19 @@ const initiatives = [
 export default function Initiatives() {
   const headerRef = useRef(null);
   const headerInView = useInView(headerRef, { once: true, margin: "-100px" });
+  const scrollRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: scrollRef,
+    offset: ["start end", "end start"],
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["-30%", "30%"]);
 
   return (
-    <section id="initiatives" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="initiatives" className="relative py-24 md:py-32 overflow-hidden" ref={scrollRef}>
+      {/* Parallax background */}
+      <motion.div style={{ y: bgY }} className="absolute inset-0 -top-20 -bottom-20">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(255,107,18,0.12)_0%,_transparent_70%)]" />
+      </motion.div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={headerRef}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}

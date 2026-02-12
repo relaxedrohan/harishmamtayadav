@@ -1,12 +1,20 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 
 export default function Contact() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [submitted, setSubmitted] = useState(false);
+  const scrollRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: scrollRef,
+    offset: ["start end", "end start"],
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["-30%", "30%"]);
+  const leftY = useTransform(scrollYProgress, [0, 1], [40, -40]);
+  const rightY = useTransform(scrollYProgress, [0, 1], [-40, 40]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -15,9 +23,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-24 md:py-32 overflow-hidden" ref={ref}>
+    <section id="contact" className="relative py-24 md:py-32 overflow-hidden" ref={scrollRef}>
+      <div ref={ref} />
       {/* Background pattern */}
-      <div className="absolute inset-0 opacity-30 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(255,107,18,0.1)_0%,_transparent_60%)]" />
+      <motion.div style={{ y: bgY }} className="absolute inset-0 -top-20 -bottom-20 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(255,107,18,0.15)_0%,_transparent_60%)]" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -42,6 +51,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
+            style={{ y: leftY }}
             className="space-y-6"
           >
             {[
@@ -118,6 +128,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: 40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
+            style={{ y: rightY }}
           >
             <form
               onSubmit={handleSubmit}

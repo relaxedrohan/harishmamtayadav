@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 
 const visionItems = [
   {
@@ -78,9 +78,22 @@ const visionItems = [
 export default function Vision() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const scrollRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: scrollRef,
+    offset: ["start end", "end start"],
+  });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["-25%", "25%"]);
+  const gridY = useTransform(scrollYProgress, [0, 1], [60, -60]);
 
   return (
-    <section id="vision" className="relative py-24 md:py-32 overflow-hidden bg-cream/50" ref={ref}>
+    <section id="vision" className="relative py-24 md:py-32 overflow-hidden bg-cream/50" ref={scrollRef}>
+      <div ref={ref} />
+      {/* Parallax background decoration */}
+      <motion.div style={{ y: bgY }} className="absolute inset-0 -top-20 -bottom-20">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(255,107,18,0.12)_0%,_transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(213,173,54,0.1)_0%,_transparent_50%)]" />
+      </motion.div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -99,7 +112,7 @@ export default function Vision() {
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div style={{ y: gridY }} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {visionItems.map((item, i) => (
             <motion.div
               key={item.title}
@@ -125,7 +138,7 @@ export default function Vision() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

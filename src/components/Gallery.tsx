@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
 const galleryItems = [
@@ -67,10 +67,23 @@ function GalleryCard({ item, index, inView }: { item: typeof galleryItems[0]; in
 export default function Gallery() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const scrollRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: scrollRef,
+    offset: ["start end", "end start"],
+  });
+  const gridY = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const blobY = useTransform(scrollYProgress, [0, 1], ["-30%", "30%"]);
 
   return (
-    <section id="gallery" className="relative py-24 md:py-32 overflow-hidden" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="gallery" className="relative py-24 md:py-32 overflow-hidden" ref={scrollRef}>
+      <div ref={ref} />
+      {/* Parallax decorative blob */}
+      <motion.div style={{ y: blobY }} className="absolute -top-20 -bottom-20 inset-x-0">
+        <div className="absolute top-1/4 right-0 w-125 h-125 bg-saffron/10 rounded-full blur-3xl translate-x-1/3" />
+        <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl -translate-x-1/3" />
+      </motion.div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -87,11 +100,11 @@ export default function Gallery() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        <motion.div style={{ y: gridY }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {galleryItems.map((item, i) => (
             <GalleryCard key={item.slug} item={item} index={i} inView={inView} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
