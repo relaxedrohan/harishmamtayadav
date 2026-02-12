@@ -3,7 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
-  variable: "--font-geist-sans",
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
@@ -15,6 +15,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    "https://relaxedrohan.github.io/harish-yadav-portfolio"
+  ),
   title: "Harish Yadav & Mamta Yadav | Ward Councillors, Khanpur - New Delhi",
   description:
     "Official portfolio of Harish Yadav & Mamta Yadav - Ward Councillors (Nigam Parshad) of Khanpur Village, Ward 167, South Delhi. Serving the community with dedication.",

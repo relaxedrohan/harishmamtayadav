@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Harish Yadav & Mamta Yadav — Portfolio
+
+Official portfolio website for **Harish Yadav & Mamta Yadav**, Ward Councillors (Nigam Parshad) of Khanpur Village, Ward 167, South Delhi.
+
+**Live:** [relaxedrohan.github.io/harish-yadav-portfolio](https://relaxedrohan.github.io/harish-yadav-portfolio)
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router, static export)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS 4
+- **Animations:** Framer Motion
+- **Deployment:** GitHub Pages via GitHub Actions
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Opens at [localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+Static output is generated in the `out/` directory.
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Pushes to `main` automatically trigger a GitHub Actions workflow that builds and deploys to GitHub Pages.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To set up:
 
-## Deploy on Vercel
+1. Go to **Settings → Pages** in your GitHub repo
+2. Set **Source** to **GitHub Actions**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+├── app/
+│   ├── layout.tsx        # Root layout, fonts, metadata
+│   ├── page.tsx          # Home page (composes all sections)
+│   └── globals.css       # Theme, custom animations, utilities
+└── components/
+    ├── Navbar.tsx         # Sticky nav with scroll-aware active states
+    ├── Hero.tsx           # Landing section with particle canvas
+    ├── Marquee.tsx        # Scrolling text ticker
+    ├── About.tsx          # Profiles with animated counters
+    ├── ParallaxQuote.tsx  # Parallax scrolling quote
+    ├── Vision.tsx         # Vision cards grid
+    ├── Initiatives.tsx    # Horizontal scrolling timeline
+    ├── Stats.tsx          # Animated statistics
+    ├── Achievements.tsx   # Vertical milestone timeline
+    ├── Gallery.tsx        # Photo grid (placeholder)
+    ├── Contact.tsx        # Contact form & info
+    ├── Footer.tsx         # Footer with links & resources
+    ├── Preloader.tsx      # Animated loading screen
+    └── BackToTop.tsx      # Scroll-to-top button
+```

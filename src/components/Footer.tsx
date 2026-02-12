@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 export default function Footer() {
   return (
     <footer className="relative pt-16 pb-8 overflow-hidden">
@@ -72,7 +68,7 @@ export default function Footer() {
 
           {/* Bottom */}
           <div className="border-t border-white/[0.06] pt-6 pb-4 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-white/20 text-xs">&copy; 2025 Harish Yadav & Mamta Yadav. All rights reserved.</p>
+            <p className="text-white/20 text-xs">&copy; {new Date().getFullYear()} Harish Yadav & Mamta Yadav. All rights reserved.</p>
             <p className="text-white/20 text-xs">Serving Ward 167, Khanpur with dedication</p>
           </div>
         </div>
