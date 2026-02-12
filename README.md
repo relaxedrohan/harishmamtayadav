@@ -2,7 +2,7 @@
 
 Official portfolio website for **Harish Yadav & Mamta Yadav**, Ward Councillors (Nigam Parshad) of Khanpur Village, Ward 167, South Delhi.
 
-**Live:** [relaxedrohan.github.io/harish-yadav-portfolio](https://relaxedrohan.github.io/harish-yadav-portfolio)
+**Live:** [relaxedrohan.github.io/harishmamtayadav](https://relaxedrohan.github.io/harishmamtayadav)
 
 ## Tech Stack
 

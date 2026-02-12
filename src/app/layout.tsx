@@ -16,7 +16,7 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    "https://relaxedrohan.github.io/harish-yadav-portfolio"
+    "https://relaxedrohan.github.io/harishmamtayadav"
   ),
   title: "Harish Yadav & Mamta Yadav | Ward Councillors, Khanpur - New Delhi",
   description:
