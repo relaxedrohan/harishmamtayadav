@@ -49,7 +49,7 @@ export default function Navbar() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-navy/90 backdrop-blur-xl shadow-lg shadow-black/20 border-b border-white/5"
+            ? "bg-white/90 backdrop-blur-xl shadow-lg shadow-black/5 border-b border-black/5"
             : "bg-transparent"
         }`}
       >
@@ -64,12 +64,12 @@ export default function Navbar() {
               }}
               className="flex items-center gap-2 group"
             >
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-saffron to-gold flex items-center justify-center font-bold text-navy text-sm group-hover:scale-110 transition-transform">
-                HY
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-saffron to-gold flex items-center justify-center group-hover:scale-110 transition-transform">
+                <span className="text-white font-black text-xs tracking-tight">BJP</span>
               </div>
               <span className="hidden sm:block font-semibold text-lg">
                 <span className="text-saffron">Harish</span>
-                <span className="text-white/40 mx-1">&</span>
+                <span className="text-navy/30 mx-1">&</span>
                 <span className="text-gold">Mamta</span>
               </span>
             </a>
@@ -87,7 +87,7 @@ export default function Navbar() {
                   className={`relative px-4 py-2 text-sm font-medium transition-colors rounded-full ${
                     activeSection === link.href.replace("#", "")
                       ? "text-saffron"
-                      : "text-white/60 hover:text-white"
+                      : "text-navy/60 hover:text-navy"
                   }`}
                 >
                   {link.label}
@@ -105,27 +105,35 @@ export default function Navbar() {
             {/* Mobile Toggle */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="lg:hidden relative w-10 h-10 flex items-center justify-center"
+              className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-full border border-navy/10 hover:border-saffron/30 transition-colors"
               aria-label="Toggle menu"
             >
-              <div className="flex flex-col gap-1.5">
+              <div className="flex flex-col items-end gap-[5px]">
                 <motion.span
                   animate={{
                     rotate: menuOpen ? 45 : 0,
-                    y: menuOpen ? 8 : 0,
+                    y: menuOpen ? 7 : 0,
+                    width: menuOpen ? 20 : 20,
                   }}
-                  className="block w-6 h-0.5 bg-white origin-center"
+                  className="block h-[2px] bg-gradient-to-r from-saffron to-gold rounded-full origin-center"
+                  style={{ width: 20 }}
                 />
                 <motion.span
-                  animate={{ opacity: menuOpen ? 0 : 1 }}
-                  className="block w-6 h-0.5 bg-saffron"
+                  animate={{
+                    opacity: menuOpen ? 0 : 1,
+                    width: menuOpen ? 0 : 14,
+                  }}
+                  className="block h-[2px] bg-navy/50 rounded-full"
+                  style={{ width: 14 }}
                 />
                 <motion.span
                   animate={{
                     rotate: menuOpen ? -45 : 0,
-                    y: menuOpen ? -8 : 0,
+                    y: menuOpen ? -7 : 0,
+                    width: menuOpen ? 20 : 8,
                   }}
-                  className="block w-6 h-0.5 bg-white origin-center"
+                  className="block h-[2px] bg-navy/30 rounded-full origin-center"
+                  style={{ width: 8 }}
                 />
               </div>
             </button>
@@ -143,7 +151,7 @@ export default function Navbar() {
             className="fixed inset-0 z-40 lg:hidden"
           >
             <div
-              className="absolute inset-0 bg-navy/95 backdrop-blur-2xl"
+              className="absolute inset-0 bg-white/95 backdrop-blur-2xl"
               onClick={() => setMenuOpen(false)}
             />
             <motion.div
@@ -151,7 +159,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="absolute right-0 top-0 bottom-0 w-[80%] max-w-sm bg-navy-light/80 backdrop-blur-2xl border-l border-white/10 flex flex-col justify-center px-8"
+              className="absolute right-0 top-0 bottom-0 w-[80%] max-w-sm bg-cream/90 backdrop-blur-2xl border-l border-black/5 flex flex-col justify-center px-8"
             >
               <div className="space-y-2">
                 {navLinks.map((link, i) => (
@@ -168,7 +176,7 @@ export default function Navbar() {
                     className={`block text-3xl font-light py-3 transition-colors ${
                       activeSection === link.href.replace("#", "")
                         ? "gradient-text font-medium"
-                        : "text-white/50 hover:text-white"
+                        : "text-navy/40 hover:text-navy"
                     }`}
                   >
                     {link.label}
@@ -179,9 +187,9 @@ export default function Navbar() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="mt-12 pt-8 border-t border-white/10"
+                className="mt-12 pt-8 border-t border-navy/10"
               >
-                <p className="text-white/30 text-sm">
+                <p className="text-navy/30 text-sm">
                   Ward 167 &middot; Khanpur &middot; South Delhi
                 </p>
               </motion.div>

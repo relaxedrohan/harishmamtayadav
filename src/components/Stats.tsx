@@ -52,11 +52,11 @@ export default function Stats() {
     <section ref={ref} className="relative py-24 md:py-32 overflow-hidden">
       {/* Parallax background */}
       <motion.div style={{ y: bgY }} className="absolute inset-0 -top-20 -bottom-20">
-        <div className="absolute inset-0 bg-gradient-to-r from-saffron/10 via-navy-light to-gold/10" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,107,53,0.1)_0%,_transparent_70%)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-saffron/10 via-cream to-gold/10" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,107,18,0.1)_0%,_transparent_70%)]" />
       </motion.div>
 
-      <div className="absolute inset-0 bg-navy/60 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-white/60 backdrop-blur-sm" />
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
@@ -72,7 +72,7 @@ export default function Stats() {
               <div className="text-4xl md:text-5xl lg:text-6xl font-bold shimmer-text mb-2">
                 <Counter target={stat.number} suffix={stat.suffix} />
               </div>
-              <p className="text-white/40 text-sm md:text-base font-medium tracking-wider uppercase">
+              <p className="text-navy/40 text-sm md:text-base font-medium tracking-wider uppercase">
                 {stat.label}
               </p>
             </motion.div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 const initiatives = [
   {
@@ -49,16 +49,8 @@ const initiatives = [
 ];
 
 export default function Initiatives() {
-  const containerRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef(null);
   const headerInView = useInView(headerRef, { once: true, margin: "-100px" });
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
 
   return (
     <section id="initiatives" className="relative py-24 md:py-32 overflow-hidden">
@@ -75,14 +67,14 @@ export default function Initiatives() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold" style={{ fontFamily: "var(--font-playfair)" }}>
             Key Initiatives &
             <br />
-            <span className="italic text-white/60">Community Programs</span>
+            <span className="italic text-navy/50">Community Programs</span>
           </h2>
         </motion.div>
       </div>
 
       {/* Horizontal scroll track */}
-      <div ref={containerRef} className="relative">
-        <motion.div style={{ x }} className="flex gap-6 pl-4 sm:pl-8 lg:pl-16 pr-16">
+      <div className="relative">
+        <div className="flex overflow-x-auto gap-6 pl-4 sm:pl-8 lg:pl-16 pr-16 pb-4 snap-x snap-mandatory" style={{ WebkitOverflowScrolling: "touch" }}>
           {initiatives.map((item, i) => (
             <motion.div
               key={item.title}
@@ -90,14 +82,14 @@ export default function Initiatives() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               viewport={{ once: true, margin: "-50px" }}
-              className="group shrink-0 w-[320px] md:w-[380px]"
+              className="group shrink-0 w-[320px] md:w-[380px] snap-start"
             >
-              <div className="relative h-full rounded-2xl overflow-hidden border border-white/[0.06] hover:border-white/10 transition-all duration-500">
+              <div className="relative h-full rounded-2xl overflow-hidden border border-black/[0.06] hover:border-black/10 transition-all duration-500">
                 {/* Gradient bg */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-[0.07] group-hover:opacity-[0.12] transition-opacity duration-500`} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-[0.05] group-hover:opacity-[0.12] transition-opacity duration-500`} />
 
                 <div className="relative p-6 md:p-8 flex flex-col h-full min-h-[280px]">
-                  <span className="text-xs font-medium text-white/30 tracking-wider uppercase mb-4">
+                  <span className="text-xs font-medium text-navy/30 tracking-wider uppercase mb-4">
                     {item.year}
                   </span>
 
@@ -105,7 +97,7 @@ export default function Initiatives() {
                     {item.title}
                   </h3>
 
-                  <p className="text-white/50 text-sm leading-relaxed flex-1 mb-6">
+                  <p className="text-navy/50 text-sm leading-relaxed flex-1 mb-6">
                     {item.description}
                   </p>
 
@@ -113,7 +105,7 @@ export default function Initiatives() {
                     <span className={`inline-block px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r ${item.gradient} text-white/90`}>
                       {item.tag}
                     </span>
-                    <svg className="w-5 h-5 text-white/20 group-hover:text-saffron group-hover:translate-x-1 transition-all duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg className="w-5 h-5 text-navy/20 group-hover:text-saffron group-hover:translate-x-1 transition-all duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
                   </div>
@@ -121,12 +113,12 @@ export default function Initiatives() {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       {/* Scroll hint */}
       <div className="text-center mt-8">
-        <p className="text-white/20 text-sm flex items-center justify-center gap-2">
+        <p className="text-navy/20 text-sm flex items-center justify-center gap-2">
           <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>

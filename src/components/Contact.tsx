@@ -17,8 +17,7 @@ export default function Contact() {
   return (
     <section id="contact" className="relative py-24 md:py-32 overflow-hidden" ref={ref}>
       {/* Background pattern */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy to-navy-light/50" />
-      <div className="absolute inset-0 opacity-30 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(255,107,53,0.1)_0%,_transparent_60%)]" />
+      <div className="absolute inset-0 opacity-30 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(255,107,18,0.1)_0%,_transparent_60%)]" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -33,7 +32,7 @@ export default function Contact() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold" style={{ fontFamily: "var(--font-playfair)" }}>
             Connect With
             <br />
-            <span className="italic text-white/60">Your Councillors</span>
+            <span className="italic text-navy/50">Your Councillors</span>
           </h2>
         </motion.div>
 
@@ -78,21 +77,21 @@ export default function Contact() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="flex items-start gap-4 p-5 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:border-saffron/20 transition-all duration-300"
+                className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-black/[0.06] shadow-sm hover:border-saffron/20 transition-all duration-300"
               >
                 <div className="w-12 h-12 rounded-xl bg-saffron/10 flex items-center justify-center text-saffron shrink-0">
                   {item.icon}
                 </div>
                 <div>
                   <h4 className="font-semibold mb-1">{item.title}</h4>
-                  <p className="text-white/50 text-sm whitespace-pre-line">{item.detail}</p>
+                  <p className="text-navy/50 text-sm whitespace-pre-line">{item.detail}</p>
                 </div>
               </div>
             ))}
 
             {/* Social links */}
             <div className="pt-4">
-              <p className="text-white/40 text-sm mb-4">Follow for updates:</p>
+              <p className="text-navy/40 text-sm mb-4">Follow for updates:</p>
               <div className="flex gap-3">
                 {[
                   { label: "Facebook", path: "M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" },
@@ -102,7 +101,7 @@ export default function Contact() {
                   <a
                     key={social.label}
                     href="#"
-                    className="w-11 h-11 rounded-xl bg-white/[0.05] border border-white/[0.08] flex items-center justify-center text-white/40 hover:text-saffron hover:border-saffron/30 hover:bg-saffron/10 transition-all duration-300"
+                    className="w-11 h-11 rounded-xl bg-white border border-black/[0.08] flex items-center justify-center text-navy/40 hover:text-saffron hover:border-saffron/30 hover:bg-saffron/10 transition-all duration-300"
                     aria-label={social.label}
                   >
                     <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -122,11 +121,11 @@ export default function Contact() {
           >
             <form
               onSubmit={handleSubmit}
-              className="bg-white/[0.03] border border-white/[0.06] rounded-3xl p-6 md:p-8 space-y-5"
+              className="bg-white border border-black/[0.06] shadow-sm rounded-3xl p-6 md:p-8 space-y-5"
             >
               <div>
                 <h3 className="text-xl font-bold mb-1">Send a Message</h3>
-                <p className="text-white/40 text-sm">Have a concern or suggestion? We&apos;d love to hear from you.</p>
+                <p className="text-navy/40 text-sm">Have a concern or suggestion? We&apos;d love to hear from you.</p>
               </div>
 
               {[
@@ -140,11 +139,11 @@ export default function Contact() {
                     id={field.id}
                     required={field.required}
                     placeholder=" "
-                    className="peer w-full bg-white/[0.05] border border-white/[0.08] rounded-xl px-4 pt-6 pb-2 text-white placeholder-transparent focus:outline-none focus:border-saffron/50 transition-colors"
+                    className="peer w-full bg-cream/50 border border-black/[0.08] rounded-xl px-4 pt-6 pb-2 text-navy placeholder-transparent focus:outline-none focus:border-saffron/50 transition-colors"
                   />
                   <label
                     htmlFor={field.id}
-                    className="absolute left-4 top-2 text-xs text-white/30 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-xs peer-focus:text-saffron"
+                    className="absolute left-4 top-2 text-xs text-navy/30 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-xs peer-focus:text-saffron"
                   >
                     {field.label}
                   </label>
@@ -157,11 +156,11 @@ export default function Contact() {
                   rows={4}
                   required
                   placeholder=" "
-                  className="peer w-full bg-white/[0.05] border border-white/[0.08] rounded-xl px-4 pt-6 pb-2 text-white placeholder-transparent focus:outline-none focus:border-saffron/50 transition-colors resize-none"
+                  className="peer w-full bg-cream/50 border border-black/[0.08] rounded-xl px-4 pt-6 pb-2 text-navy placeholder-transparent focus:outline-none focus:border-saffron/50 transition-colors resize-none"
                 />
                 <label
                   htmlFor="message"
-                  className="absolute left-4 top-2 text-xs text-white/30 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-xs peer-focus:text-saffron"
+                  className="absolute left-4 top-2 text-xs text-navy/30 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-xs peer-focus:text-saffron"
                 >
                   Your Message
                 </label>

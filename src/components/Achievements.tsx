@@ -49,8 +49,6 @@ export default function Achievements() {
 
   return (
     <section id="achievements" ref={sectionRef} className="relative py-24 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy-light/30 to-navy" />
-
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -64,14 +62,14 @@ export default function Achievements() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold" style={{ fontFamily: "var(--font-playfair)" }}>
             Milestones &
             <br />
-            <span className="italic text-white/60">Achievements</span>
+            <span className="italic text-navy/50">Achievements</span>
           </h2>
         </motion.div>
 
         {/* Timeline */}
         <div className="relative">
           {/* Animated line */}
-          <div className="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-white/[0.06]">
+          <div className="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-black/[0.06]">
             <motion.div style={{ height: lineHeight }} className="w-full bg-gradient-to-b from-saffron to-gold" />
           </div>
 
@@ -87,19 +85,19 @@ export default function Achievements() {
               }`}
             >
               {/* Dot */}
-              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-saffron border-4 border-navy z-10" style={{ animation: "timeline-pulse 2s ease-in-out infinite" }} />
+              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-saffron border-4 border-white z-10" style={{ animation: "timeline-pulse 2s ease-in-out infinite" }} />
 
               {/* Content */}
               <div className={`ml-12 md:ml-0 md:w-1/2 ${i % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
                 <div className="group">
-                  <div className="relative bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 hover:border-saffron/20 transition-all duration-500">
+                  <div className="relative bg-white border border-black/[0.06] shadow-sm rounded-2xl p-6 hover:border-saffron/20 transition-all duration-500">
                     <span className="inline-block px-3 py-1 bg-saffron/10 text-saffron text-xs font-bold rounded-full mb-3">
                       {item.year}
                     </span>
                     <h3 className="text-lg font-bold mb-2 group-hover:text-saffron transition-colors">
                       {item.title}
                     </h3>
-                    <p className="text-white/50 text-sm leading-relaxed">
+                    <p className="text-navy/50 text-sm leading-relaxed">
                       {item.description}
                     </p>
                   </div>

@@ -80,8 +80,7 @@ export default function Vision() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="vision" className="relative py-24 md:py-32 overflow-hidden" ref={ref}>
-      <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy-light/50 to-navy" />
+    <section id="vision" className="relative py-24 md:py-32 overflow-hidden bg-cream/50" ref={ref}>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -96,7 +95,7 @@ export default function Vision() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold" style={{ fontFamily: "var(--font-playfair)" }}>
             A Vision for
             <br />
-            <span className="italic text-white/60">New Khanpur</span>
+            <span className="italic text-navy/50">New Khanpur</span>
           </h2>
         </motion.div>
 
@@ -110,9 +109,9 @@ export default function Vision() {
               className="group relative"
             >
               <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.color} rounded-2xl opacity-0 group-hover:opacity-20 blur-lg transition-opacity duration-500`} />
-              <div className="relative h-full bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 md:p-8 hover:border-white/10 transition-all duration-500 flex flex-col">
+              <div className="relative h-full bg-white border border-black/[0.06] shadow-sm rounded-2xl p-6 md:p-8 hover:border-black/10 transition-all duration-500 flex flex-col">
                 {/* Number */}
-                <span className="absolute top-4 right-4 text-6xl font-black text-white/[0.03] leading-none">
+                <span className="absolute top-4 right-4 text-6xl font-black text-black/[0.03] leading-none">
                   {String(i + 1).padStart(2, "0")}
                 </span>
 
@@ -121,8 +120,8 @@ export default function Vision() {
                   {item.icon}
                 </div>
 
-                <h3 className="text-lg font-semibold mb-3">{item.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed flex-1">{item.description}</p>
+                <h3 className="text-lg font-semibold mb-3 text-navy">{item.title}</h3>
+                <p className="text-navy/50 text-sm leading-relaxed flex-1">{item.description}</p>
               </div>
             </motion.div>
           ))}

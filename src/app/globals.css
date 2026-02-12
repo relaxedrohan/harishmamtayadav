@@ -6,24 +6,25 @@
   --font-sans: var(--font-inter);
 
   /* Custom colors */
-  --color-saffron: #FF6B35;
-  --color-saffron-dark: #E55A25;
-  --color-gold: #F7C948;
-  --color-maroon: #8B1A1A;
-  --color-navy: #0C1445;
-  --color-navy-light: #1A2366;
-  --color-cream: #FFF8F0;
-  --color-lotus-pink: #E63946;
+  --color-saffron: #FF6B12;
+  --color-saffron-dark: #CC4E10;
+  --color-gold: #D5AD36;
+  --color-maroon: #7A1018;
+  --color-navy: #1a1a2e;
+  --color-navy-light: #2d2d44;
+  --color-cream: #FAF5ED;
+  --color-lotus-pink: #D72638;
 }
 
 :root {
-  --background: #0C1445;
-  --foreground: #ffffff;
+  --background: #ffffff;
+  --foreground: #1a1a2e;
 }
 
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -36,19 +37,20 @@ body {
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0C1445;
+  background: #f5f5f5;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #FF6B35, #F7C948);
+  background: linear-gradient(180deg, #FF6B12, #D5AD36);
   border-radius: 4px;
 }
 
 /* Selection color */
 ::selection {
-  background: rgba(255, 107, 53, 0.3);
-  color: white;
+  background: rgba(255, 107, 18, 0.2);
+  color: #1a1a2e;
 }
 
 /* Marquee animation */
@@ -63,7 +65,7 @@ body {
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #FF6B35, #F7C948);
+  background: linear-gradient(135deg, #FF6B12, #D5AD36);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -71,14 +73,15 @@ body {
 
 /* Glass effect */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
 }
 
 /* Glow effect */
 .glow-saffron {
-  box-shadow: 0 0 40px rgba(255, 107, 53, 0.15);
+  box-shadow: 0 0 40px rgba(255, 107, 18, 0.15);
 }
 
 /* Float animation */
@@ -95,8 +98,8 @@ body {
 
 /* Timeline dot pulse */
 @keyframes timeline-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4); }
-  50% { box-shadow: 0 0 0 12px rgba(255, 107, 53, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 18, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(255, 107, 18, 0); }
 }
 
 /* Shimmer */
@@ -106,7 +109,7 @@ body {
 }
 
 .shimmer-text {
-  background: linear-gradient(90deg, #FF6B35, #F7C948, #FF6B35, #F7C948);
+  background: linear-gradient(90deg, #FF6B12, #D5AD36, #FF6B12, #D5AD36);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

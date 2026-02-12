@@ -21,7 +21,7 @@ export default function ParallaxQuote() {
         style={{ y: bgY }}
         className="absolute inset-0 -top-20 -bottom-20"
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-saffron-dark/20 via-navy to-navy-light" />
+        <div className="absolute inset-0 bg-gradient-to-br from-saffron/10 via-cream to-cream" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSA2MCAwIEwgMCAwIDAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-50" />
       </motion.div>
 
@@ -33,7 +33,7 @@ export default function ParallaxQuote() {
         {/* Quote icon */}
         <motion.svg
           initial={{ opacity: 0, scale: 0 }}
-          whileInView={{ opacity: 0.3, scale: 1 }}
+          whileInView={{ opacity: 0.7, scale: 1 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
           className="w-16 h-16 mx-auto mb-8 text-saffron"
@@ -48,7 +48,7 @@ export default function ParallaxQuote() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed mb-6"
+          className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-relaxed mb-6 text-saffron drop-shadow-[0_1px_2px_rgba(255,107,18,0.15)]"
           style={{ fontFamily: "var(--font-playfair)" }}
         >
           जब तक समाज का अंतिम व्यक्ति विकास की मुख्यधारा से नहीं जुड़ता,
@@ -61,7 +61,7 @@ export default function ParallaxQuote() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-base md:text-lg text-white/40 italic mb-8 max-w-2xl mx-auto"
+          className="text-base md:text-lg text-navy/70 italic mb-8 max-w-2xl mx-auto"
         >
           &ldquo;Until the last person of society joins the mainstream of development,
           our struggle will continue.&rdquo;

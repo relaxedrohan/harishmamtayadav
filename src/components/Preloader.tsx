@@ -17,7 +17,7 @@ export default function Preloader() {
         <motion.div
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="fixed inset-0 z-[100] bg-navy flex items-center justify-center"
+          className="fixed inset-0 z-[100] bg-white flex items-center justify-center overflow-hidden"
         >
           <div className="text-center">
             {/* Lotus/flower animation */}
@@ -27,7 +27,7 @@ export default function Preloader() {
               transition={{ duration: 1, ease: "easeOut" }}
               className="mb-6"
             >
-              <svg viewBox="0 0 120 120" className="w-20 h-20 mx-auto">
+              <svg viewBox="0 0 120 120" className="w-120 h-120 md:w-96 md:h-96 mx-auto">
                 {[0, 60, 120, 180, 240, 300].map((angle, i) => (
                   <motion.ellipse
                     key={i}
@@ -39,6 +39,7 @@ export default function Preloader() {
                     stroke="url(#lotus-grad)"
                     strokeWidth="1.5"
                     transform={`rotate(${angle} 60 60)`}
+                    style={{ transformOrigin: "60px 60px" }}
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.3 + i * 0.1, duration: 0.5 }}
@@ -46,15 +47,16 @@ export default function Preloader() {
                 ))}
                 <defs>
                   <linearGradient id="lotus-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#FF6B35" />
-                    <stop offset="100%" stopColor="#F7C948" />
+                    <stop offset="0%" stopColor="#FF6B12" />
+                    <stop offset="100%" stopColor="#D5AD36" />
                   </linearGradient>
                 </defs>
                 <motion.circle
                   cx="60"
                   cy="60"
                   r="6"
-                  fill="#FF6B35"
+                  fill="#FF6B12"
+                  style={{ transformOrigin: "60px 60px" }}
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 1, duration: 0.3, type: "spring" }}
@@ -66,7 +68,7 @@ export default function Preloader() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.5 }}
-              className="text-white/40 text-lg tracking-wider"
+              className="text-navy/40 text-2xl md:text-3xl tracking-wider"
             >
               सेवा ही धर्म है
             </motion.p>
